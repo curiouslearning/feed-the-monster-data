@@ -60,7 +60,7 @@ workflows:
     jobs:
       - s3-deploy:
           context:
-            - AWS
+            - aws-context
           filters:
             branches:
               only:
