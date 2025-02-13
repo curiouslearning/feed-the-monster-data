@@ -34,7 +34,7 @@ jobs:
           aws-access-key-id: AWS_ACCESS_KEY
           aws-region: AWS_DEFAULT_REGION
           aws-secret-access-key: AWS_SECRET_ACCESS_KEY
-          from: ./build/
+          from: ./lang/
           to: 's3://globallit-aws-s3-static-webapp-test-us-east-2/feed-the-monster-data'
 
   s3-deploy-prod:
@@ -59,6 +59,8 @@ workflows:
   s3-deploy-workflow:
     jobs:
       - s3-deploy:
+          context:
+            - AWS
           filters:
             branches:
               only:
